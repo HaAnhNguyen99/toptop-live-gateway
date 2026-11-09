@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "TopTop Live Gateway",
+  "version": "1.0.0",
+  "description": "Đọc bình luận TikTok Live đang hiển thị trên tab của bạn và gửi về gateway tự host ở máy bạn.",
+  "host_permissions": ["http://localhost:8787/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.tiktok.com/*", "http://localhost:8787/mock/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

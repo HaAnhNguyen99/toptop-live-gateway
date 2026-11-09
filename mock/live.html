@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><title>Mock TikTok Live</title></head>
+<body style="font-family:sans-serif">
+<h3>Trang giả lập chat TikTok Live (để test gateway, kênh "mock")</h3>
+<div id="list"></div>
+<script>
+const users = ['lan.nguyen','minhtuan99','be_heo','thu.trang','khach_quen','anhdung.hcm'];
+const texts = ['T1 vô địch', 'giá bao nhiêu shop ơi', 'chốt A12', '3-1', 'go BLG', 'đẹp quá', '❤️❤️'];
+const list = document.getElementById('list');
+setInterval(() => {
+  const d = document.createElement('div');
+  d.setAttribute('data-e2e', 'chat-message');
+  d.innerHTML = `<span>8</span><span data-e2e="message-owner-name">${users[Math.random()*users.length|0]}</span><span>No. 1</span><div>${texts[Math.random()*texts.length|0]}</div><div data-e2e="more-action-button"></div>`;
+  list.appendChild(d);
+  if (list.children.length > 50) list.firstChild.remove();
+}, 700);
+</script></body></html>
